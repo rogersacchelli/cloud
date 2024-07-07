@@ -1,0 +1,49 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+NODES=1
+IP_PUB_NET ="192.168.1."
+IP_PRV_NET ="172.16.1."
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "generic/rocky9"
+  config.disksize.size = '100GB'
+  #config.vm.box_check_update = true
+  config.vm.box_download_insecure = true
+  config.vm.provision "shell", inline: "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA6PQ3NGukq0oDNDtHVWBD5TGdKAA6wJ29wdWB6aBANpeyOKASCDZ2ntxJRFMW0yEtdyiKYIL0NRiLFhmDVdW064ATm4csuHN9skM/YDMsv9+AlyN70FnzBfi5JssmPvrC24bZyXDyr+1/p+w1BRuVOs6mim8J5uI94H+ZqogU6RbaHJS1hoSnF/cUywLK0FzpujBarhiFvTJT8xZMXtrucHVSymDgOY+ZMps5+k32HEVXIyZyORsLRBSx/9x7+zWzG2GlJLgFY9ThDvUY1MtXGhIzJeWfZvaMXN1qn59hcKqaG7v8LC5kbR86ibCOSLF3Y1Eof+0IOxsR9U1rQB1VQw==' >> /home/vagrant/.ssh/authorized_keys"
+
+  
+  (1..NODES).each do |i|
+      config.vm.define "services" do |node|
+        node.vm.hostname = "services#{i}.rdss.cloud"
+        node.vm.network "public_network", bridge: "Intel(R) Ethernet Controller (3) I225-V"
+		#node.vm.network "private_network", ip: IP_PRV_NET + "#{i + 22}"
+
+        node.vm.provider "virtualbox" do |vb|
+            vb.memory = 1024 * 16
+            vb.cpus = 4
+            vb.name = "services"
+			vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
+        end
+      end
+	end
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+
+  #config.vm.provision "shell", path: "services_services.sh"
+end

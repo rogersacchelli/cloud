@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" modified="2024-04-21T02:24:52.815Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0" etag="6_IZ11MCYtPWu4AD8Y8Z" version="24.2.7" type="google">
+  <diagram name="Page-1" id="6zTn594EXOiCRMb0io20">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7qzH3AmkmPDK5D4uo4CH-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" source="7qzH3AmkmPDK5D4uo4CH-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="369" y="514" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7qzH3AmkmPDK5D4uo4CH-3" value="1883,8883" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;curveFitting=1;jiggle=2;rounded=1;labelBackgroundColor=none;" vertex="1" connectable="0" parent="7qzH3AmkmPDK5D4uo4CH-2">
+          <mxGeometry x="0.0149" relative="1" as="geometry">
+            <mxPoint x="-39" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7qzH3AmkmPDK5D4uo4CH-1" value="MQTT-Client" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="310" y="586" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" source="hDbuQ0BJgTPqcecuziUj-1" target="hDbuQ0BJgTPqcecuziUj-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-1" value="MQTT" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="310" y="414" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-2" value="MQTT-SVC&lt;br&gt;(LoadBalancer)" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="310" y="474" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-21" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" source="hDbuQ0BJgTPqcecuziUj-8" target="hDbuQ0BJgTPqcecuziUj-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-8" value="MQTT-Adapter" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="310" y="344" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MY5jUwVfT0-AO38DjUDV-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" edge="1" parent="1" source="hDbuQ0BJgTPqcecuziUj-10" target="hDbuQ0BJgTPqcecuziUj-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-10" value="Adapter" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="274" width="450" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" source="hDbuQ0BJgTPqcecuziUj-11" target="hDbuQ0BJgTPqcecuziUj-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-11" value="NATS" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="160" width="450" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-12" value="MongoDB" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="670" y="160" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-14" value="Frontend" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="90" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-22" value="WS" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="460" y="414" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-23" value="WS-SVC&lt;br&gt;(LoadBalancer)" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="460" y="474" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" source="hDbuQ0BJgTPqcecuziUj-25" target="hDbuQ0BJgTPqcecuziUj-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-25" value="WS-Adapter" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="460" y="344" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MY5jUwVfT0-AO38DjUDV-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" edge="1" parent="1" source="hDbuQ0BJgTPqcecuziUj-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hDbuQ0BJgTPqcecuziUj-28" value="Controller" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="220" width="450" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MY5jUwVfT0-AO38DjUDV-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.469;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" edge="1" parent="1" source="hDbuQ0BJgTPqcecuziUj-8" target="hDbuQ0BJgTPqcecuziUj-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

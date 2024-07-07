@@ -1,0 +1,88 @@
+NUM_MASTER_NODES=3
+NUM_WORKER_NODES=3
+NUM_HAPROXY_NODES=1
+NUM_SERVICE_NODES=1
+IP_NW_MASTER ="10.200.1."
+IP_NW_WORKER ="10.200.2."
+IP_NW_SERV ="172.31.1."
+
+
+Vagrant.configure("2") do |config|
+    
+    config.vm.box = "ubuntu/jammy64"
+    #config.vm.box_check_update = true
+    config.vm.box_download_insecure = true
+
+	
+	(1..NUM_MASTER_NODES).each do |i|
+      config.vm.define "master#{i}" do |master|
+        master.vm.hostname = "master-node#{i}"
+        master.vm.network "private_network", ip: IP_NW_MASTER + "#{NUM_HAPROXY_NODES + i}"
+        master.vm.provision "shell", inline: <<-SHELL
+	  	  sudo ip route add 10.0.0.0/8 via 10.200.1.254
+	    SHELL
+        master.vm.provider "virtualbox" do |vb|
+            vb.memory = 2048
+            vb.cpus = 2
+			vb.name = "master-node#{i}"
+            #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        end
+		master.vm.provision "shell", path: "bootstrap.sh"
+      end
+	end
+	
+
+    (1..NUM_WORKER_NODES).each do |i|
+      config.vm.define "worker#{i}" do |node|
+        node.vm.hostname = "worker-node#{i}"
+        node.vm.network "private_network", ip: IP_NW_WORKER + "#{NUM_HAPROXY_NODES + i}"
+		node.vm.provision "shell", inline: <<-SHELL
+	  	  sudo ip route add 10.0.0.0/8 via 10.200.2.254
+	    SHELL
+        node.vm.provider "virtualbox" do |vb|
+            vb.memory = 2048
+            vb.cpus = 1
+			vb.name = "worker-node#{i}"
+            #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        end
+		node.vm.provision "shell", path: "bootstrap.sh"
+      end
+    end
+	
+	(1..NUM_HAPROXY_NODES).each do |i|
+      config.vm.define "haproxy#{i}" do |haproxy|
+        haproxy.vm.hostname = "haproxy#{i}"
+        haproxy.vm.network "private_network", ip: IP_NW_MASTER + "#{255-i}"
+        haproxy.vm.network "private_network", ip: IP_NW_WORKER + "#{255-i}"
+        haproxy.vm.network "private_network", ip: IP_NW_SERV + "#{NUM_SERVICE_NODES + i}"
+		haproxy.vm.provision "shell", inline: <<-SHELL
+		  # Set routing
+	  	  sudo sysctl -w net.ipv4.ip_forward=1
+		  echo 'sysctl -w net.ipv4.ip_forward=1' | sudo tee -a /etc/sysctl.conf
+          sudo apt-get -y install haproxy
+          sudo cp haproxy.cfg /etc/haproxy/haproxy.cfg
+          sudo systemctl restart haproxy
+	    SHELL
+        haproxy.vm.provider "virtualbox" do |vb|
+            vb.memory = 2048
+            vb.cpus = 1
+			vb.name = "haproxy#{i}"
+            #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        end
+      end
+    end
+	
+	(1..NUM_SERVICE_NODES).each do |i|
+      config.vm.define "service#{i}" do |service|
+        service.vm.hostname = "service#{i}"
+        service.vm.network "private_network", ip: IP_NW_SERV + "#{255-i}"
+        service.vm.provider "virtualbox" do |vb|
+            vb.memory = 2048
+            vb.cpus = 1
+			vb.name = "service#{i}"
+            #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        end
+      end
+    end
+	
+  end
