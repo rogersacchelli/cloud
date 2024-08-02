@@ -293,7 +293,7 @@ Chrony runs by default on Centos8 ISO. Adjust the time sources if needed.
 
 ```shell
 
-# Add the necessary source at /etc/chrony.conf - For Nokia internal network use 10.171.8.4
+# Add the necessary source at /etc/chrony.conf
 # Please consider joining the pool (http://www.pool.ntp.org/join.html).
 $ vi /etc/chrony.conf
 pool 10.171.8.4 iburst
